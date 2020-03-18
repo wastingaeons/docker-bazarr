@@ -48,17 +48,13 @@ ENV SPHINXBASE_DIR /build/sphinxbase-5prealpha
 ENV POCKETSPHINX_DIR /build/pocketsphinx-5prealpha
 ENV USE_PKG_CONFIG no
 
-RUN apk add \
-	py3-pip \
+RUN apk add --no-cache \
+	py3-setuptools \
 	libffi-dev \
 	openssl-dev \
 	libgcc \
 	ffmpeg-dev \
 	py3-pybind11
-	
-RUN pip3 install venv
-RUN python3 -m venv .env
-RUN source .env/bin/activate
 	
 RUN git clone -b '0.15' https://github.com/sc0ty/subsync.git /app/subsync
 RUN cp /app/subsync/subsync/config.py.template /app/subsync/subsync/config.py
