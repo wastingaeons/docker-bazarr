@@ -42,6 +42,8 @@ ENV FFMPEGVER https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-sta
 RUN cd /build \
 	&& wget "$FFMPEGVER" \
 	&& tar xf ffmpeg-release-amd64-static.tar.xz
+	
+RUN ls /build/ffmpeg-release-amd64-static
 
 ENV FFMPEG_DIR /build/ffmpeg-release-amd64-static
 ENV SPHINXBASE_DIR /build/sphinxbase-5prealpha
@@ -61,8 +63,7 @@ RUN cp /app/subsync/subsync/config.py.template /app/subsync/subsync/config.py
 RUN pip3 install -r /app/subsync/requirements.txt
 
 WORKDIR /app/subsync
-RUN ls && \
-    ls /build/ffmpeg-release-amd64-static
+RUN ls
 RUN pip3 install .
 
 WORKDIR /
