@@ -102,7 +102,7 @@ RUN apk add --no-cache py3-pip \
 	libffi-dev \
 	openssl-dev \
 	libgcc \
-	ffmpeg \
+	ffmpeg-dev \
 	py3-pybind11
 
 RUN git clone -b '0.15' https://github.com/sc0ty/subsync.git /app/subsync
