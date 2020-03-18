@@ -110,10 +110,6 @@ RUN cp /app/subsync/subsync/config.py.template /app/subsync/subsync/config.py
 RUN sed -i '/wxPython>=4.0/d' /app/subsync/requirements.txt
 RUN pip3 install -r /app/subsync/requirements.txt
 
-WORKDIR /app/subsync/gizmo
-RUN python3 setup.py build
-RUN python3 setup.py install
-
 WORKDIR /app/subsync
 RUN pip3 install .
 
