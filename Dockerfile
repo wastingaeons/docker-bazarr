@@ -61,7 +61,8 @@ RUN cp /app/subsync/subsync/config.py.template /app/subsync/subsync/config.py
 RUN pip3 install -r /app/subsync/requirements.txt
 
 WORKDIR /app/subsync
-RUN ls
+RUN ls && \
+    ls /build/ffmpeg-release-amd64-static
 RUN pip3 install .
 
 WORKDIR /
