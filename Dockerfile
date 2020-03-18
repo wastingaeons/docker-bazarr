@@ -98,7 +98,7 @@ ENV SPHINXBASE_DIR /build/sphinxbase-5prealpha
 ENV POCKETSPHINX_DIR /build/pocketsphinx-5prealpha
 ENV USE_PKG_CONFIG no
 
-RUN apk add --no-cache py-pip \
+RUN apk add --no-cache py3-pip \
 	libffi-dev \
 	openssl-dev \
 	libgcc \
@@ -107,10 +107,9 @@ RUN apk add --no-cache py-pip \
 
 RUN git clone -b '0.15' https://github.com/sc0ty/subsync.git /app/subsync
 RUN cp /app/subsync/subsync/config.py.template /app/subsync/subsync/config.py
-RUN sed -i '/wxPython>=4.0/d' /app/subsync/requirements.txt
 RUN pip3 install -r /app/subsync/requirements.txt
 
-RUN cd /app/subsync
+WORKDIR /app/subsync
 RUN pip3 install .
 
 WORKDIR /
