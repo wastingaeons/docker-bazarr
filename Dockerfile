@@ -110,7 +110,7 @@ RUN cp /app/subsync/subsync/config.py.template /app/subsync/subsync/config.py
 RUN sed -i '/wxPython>=4.0/d' /app/subsync/requirements.txt
 RUN pip3 install -r /app/subsync/requirements.txt
 
-WORKDIR /app/subsync
+RUN cd /app/subsync
 RUN pip3 install .
 
 WORKDIR /
