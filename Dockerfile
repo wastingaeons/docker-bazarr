@@ -41,11 +41,11 @@ ENV FFMPEGVER https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-sta
 
 RUN cd /build \
 	&& wget "$FFMPEGVER" \
-	&& tar xf ffmpeg-release-amd64-static.tar.xz
+	&& tar xf ffmpeg-release-amd64-static.tar.xz -C /ffmpeg
 	
-RUN ls /build/ffmpeg-release-amd64-static
+RUN ls /build/ffmpeg
 
-ENV FFMPEG_DIR /build/ffmpeg-release-amd64-static
+ENV FFMPEG_DIR /build/ffmpeg
 ENV SPHINXBASE_DIR /build/sphinxbase-5prealpha
 ENV POCKETSPHINX_DIR /build/pocketsphinx-5prealpha
 ENV USE_PKG_CONFIG no
