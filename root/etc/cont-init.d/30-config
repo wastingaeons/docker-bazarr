@@ -1,5 +1,8 @@
 #!/usr/bin/with-contenv bash
 
-# permissions
+# permissions
 chown -R abc:abc \
 	/config
+	
+chown -R abc:abc \
+	/app/subsync
