@@ -48,7 +48,8 @@ ENV SPHINXBASE_DIR /build/sphinxbase-5prealpha
 ENV POCKETSPHINX_DIR /build/pocketsphinx-5prealpha
 ENV USE_PKG_CONFIG no
 
-RUN apk add --no-cache py3-pip \
+RUN apk add \
+	py3-pip \
 	libffi-dev \
 	openssl-dev \
 	libgcc \
