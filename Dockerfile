@@ -43,8 +43,6 @@ RUN mkdir /build/ffmpeg
 RUN cd /build \
 	&& wget "$FFMPEGVER" \
 	&& tar xf ffmpeg-release-amd64-static.tar.xz --directory ffmpeg/
-	
-RUN ls /build/ffmpeg
 
 ENV FFMPEG_DIR /build/ffmpeg
 ENV SPHINXBASE_DIR /build/sphinxbase-5prealpha
@@ -64,7 +62,7 @@ RUN cp /app/subsync/subsync/config.py.template /app/subsync/subsync/config.py
 RUN pip3 install -r /app/subsync/requirements.txt
 
 WORKDIR /app/subsync
-RUN ls
+RUN pip3 install pybind11
 RUN pip3 install .
 
 WORKDIR /
