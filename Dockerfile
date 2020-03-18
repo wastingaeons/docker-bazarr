@@ -41,7 +41,7 @@ ENV FFMPEGVER https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-sta
 
 RUN cd /build \
 	&& wget "$FFMPEGVER" \
-	&& tar xf ffmpeg-release-amd64-static.tar.xz -C /ffmpeg
+	&& tar xf ffmpeg-release-amd64-static.tar.xz -C /build/ffmpeg
 	
 RUN ls /build/ffmpeg
 
