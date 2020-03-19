@@ -30,12 +30,12 @@ RUN wget https://sourceforge.net/projects/cmusphinx/files/sphinxbase/5prealpha/s
 	&& make \
 	&& make install
 
-#RUN wget https://sourceforge.net/projects/cmusphinx/files/pocketsphinx/5prealpha/pocketsphinx-5prealpha.tar.gz/download -O pocketsphinx.tar.gz \
-#	&& tar -xzvf pocketsphinx.tar.gz \
-#       && cd /build/pocketsphinx-5prealpha \
-#	&& ./configure \
-#	&& make \
-#	&& make install
+RUN wget https://sourceforge.net/projects/cmusphinx/files/pocketsphinx/5prealpha/pocketsphinx-5prealpha.tar.gz/download -O pocketsphinx.tar.gz \
+	&& tar -xzvf pocketsphinx.tar.gz \
+	&& cd /build/pocketsphinx-5prealpha \
+	&& ./configure \
+	&& make \
+	&& make install
 
 ENV FFMPEGVER https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
 
@@ -46,9 +46,8 @@ RUN cd /build \
 
 ENV FFMPEG_DIR /build/ffmpeg
 ENV SPHINXBASE_DIR /build/sphinxbase-5prealpha
+ENV POCKETSPHINX_DIR /build/pocketsphinx-5prealpha
 ENV USE_PKG_CONFIG no
-
-RUN pip3 install pocketsphinx
 
 RUN apk add --no-cache \
 	libffi-dev \
