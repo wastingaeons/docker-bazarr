@@ -60,7 +60,7 @@ RUN git clone -b '0.15' https://github.com/sc0ty/subsync.git /app/subsync
 RUN cp /app/subsync/subsync/config.py.template /app/subsync/subsync/config.py
 
 WORKDIR /app/subsync
-RUN python3 -m venv venv/ \
+RUN python3 -m venv /app/subsync/venv/ \
 	&& source /venv/bin/activate \
 	&& pip3 install pybind11 \
 	&& pip3 install -r /app/subsync/requirements.txt \
