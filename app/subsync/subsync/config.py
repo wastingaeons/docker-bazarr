@@ -1,3 +1,4 @@
+  GNU nano 4.6                                                    /app/subsync/subsync/config.py                                                              
 import os
 import sys
 
@@ -16,7 +17,7 @@ if sys.platform == 'win32':
     assetupd  = 'subsync/win-x86_64'
 
 elif sys.platform == 'linux':
-    configdir = os.path.join('config', '.config', appname)
+    configdir = '/config/subsync/'
     shareddir = configdir
     assetupd =  None
 
