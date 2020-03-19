@@ -63,8 +63,8 @@ RUN pip3 install -r /app/subsync/requirements.txt
 WORKDIR /app/subsync
 RUN pip3 install pybind11 \
 	&& pip3 install virtualenv \
-	&& python3 - venv .env \
-	&& source venv/bin/activate \
+	&& python3 - virtualenv .env \
+	&& source .env/bin/activate \
 	&& pip3 install .
 
 WORKDIR /
