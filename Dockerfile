@@ -62,6 +62,7 @@ RUN pip3 install -r /app/subsync/requirements.txt \
 	&& pip3 install .
 WORKDIR /
 COPY app/ /app/
+RUN mkdir /home/abc
 
 #COPY --from=builder /app .
 
