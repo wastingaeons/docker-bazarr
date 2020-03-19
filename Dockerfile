@@ -56,13 +56,12 @@ RUN apk add --no-cache \
 	ffmpeg-dev \
 	py3-pybind11-dev
 	
-RUN git clone https://github.com/sc0ty/subsync.git /app/subsync
+RUN git clone -b '0.15' https://github.com/sc0ty/subsync.git /app/subsync
+WORKDIR /
+COPY app/ /app/
 WORKDIR /app/subsync
 RUN pip3 install -r /app/subsync/requirements.txt \
 	&& pip3 install .
-WORKDIR /
-COPY app/ /app/
-RUN mkdir /home/abc
 
 #COPY --from=builder /app .
 
