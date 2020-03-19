@@ -57,16 +57,13 @@ RUN apk add --no-cache \
 	py3-pybind11-dev
 	
 RUN git clone -b '0.15' https://github.com/sc0ty/subsync.git /app/subsync
-#RUN cp /app/subsync/subsync/config.py.template /app/subsync/subsync/config.py
+COPY config.py /app/subsync/subsync/config.py
 
 WORKDIR /app/subsync
 RUN pip3 install -r /app/subsync/requirements.txt \
 	&& pip3 install .
 
 WORKDIR /
-
-COPY config.py /app/subsync/subsync/config.py
-RUN sed -i -e 's#configdir = os.path.join(os.path.expanduser('~'), '.config', appname)#configdir = '/config/subsync/config'#g' /app/subsync/subsync/config.py
 
 #COPY --from=builder /app .
 
