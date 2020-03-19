@@ -30,8 +30,8 @@ else:
     shareddir = configdir
     assetupd  = None
 
-configpath = os.path.join(configdir, appname + '.json')
-assetspath = os.path.join(configdir, 'assets.json')
+configpath = '/config/subsync/subsync.json'
+assetspath = '/config/subsync/assets/'
 
 assetdir   = os.path.join(shareddir, 'assets')
 imgdir     = os.path.join(datadir, 'img')
