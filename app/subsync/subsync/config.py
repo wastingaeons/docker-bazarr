@@ -1,4 +1,3 @@
-  GNU nano 4.6                                                    /app/subsync/subsync/config.py                                                              
 import os
 import sys
 
