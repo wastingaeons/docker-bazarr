@@ -23,7 +23,7 @@ RUN apk add --no-cache alsa-lib-dev \
 
 WORKDIR /build
 
-RUN git clone -b '2.4.3' https://github.com/pybind/pybind11 /pybind11 \
+RUN git clone -b 'v2.4.3' https://github.com/pybind/pybind11 /pybind11 \
 	&& cd pybind11 \
 	&& mkdir build \
 	&& cd build \
