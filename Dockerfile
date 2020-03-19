@@ -64,7 +64,7 @@ WORKDIR /app/subsync
 RUN pip3 install pybind11 \
 	&& pip3 install virtualenv \
 	&& python3 - venv .env \
-	&& source .env/bin/activate \
+	&& source venv/bin/activate \
 	&& pip3 install .
 
 WORKDIR /
