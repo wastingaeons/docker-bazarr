@@ -5,9 +5,9 @@ appname = 'subsync'
 
 
 if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
-    datadir = '/config/subsync_datadir/'
+    datadir = sys._MEIPASS
 else:
-    datadir = '/config/subsync/'
+    datadir = os.path.dirname(__file__)
 
 
 if sys.platform == 'win32':
@@ -16,22 +16,22 @@ if sys.platform == 'win32':
     assetupd  = 'subsync/win-x86_64'
 
 elif sys.platform == 'linux':
-    configdir = '/config/subsync_linux/'
+    configdir = os.path.join(os.path.expanduser('~'), '.config', appname)
     shareddir = configdir
     assetupd =  None
 
 elif sys.platform == 'darwin':
-    configdir = '/config/subsync_darwin/'
+    configdir = os.path.join(os.path.expanduser('~'), 'Library', 'Preferences', appname)
     shareddir = configdir
     assetupd = 'subsync/mac-x86_64'
 
 else:
-    configdir = '/config/subsync_else/'
+    configdir = datadir
     shareddir = configdir
     assetupd  = None
 
-configpath = '/config/subsync/subsync.json'
-assetspath = '/config/subsync/assets/'
+configpath = os.path.join(configdir, appname + '.json')
+assetspath = os.path.join(configdir, 'assets.json')
 
 assetdir   = os.path.join(shareddir, 'assets')
 imgdir     = os.path.join(datadir, 'img')
