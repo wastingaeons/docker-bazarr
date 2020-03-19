@@ -61,7 +61,7 @@ WORKDIR /app/subsync
 RUN pip3 install -r /app/subsync/requirements.txt \
 	&& pip3 install .
 WORKDIR /
-RUN rm /app/subsync/subsync/config.py
+RUN rm /app/subsync/subsync/config.py.template
 COPY app/ /app/
 
 #COPY --from=builder /app .
