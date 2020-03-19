@@ -23,6 +23,13 @@ RUN apk add --no-cache alsa-lib-dev \
 
 WORKDIR /build
 
+RUN git clone -b '2.4.3' https://github.com/pybind/pybind11 /pybind11 \
+	&& cd pybind11 \
+	&& mkdir build \
+	&& cd build \
+	&& cmake .. \
+	&& make install
+
 RUN wget https://sourceforge.net/projects/cmusphinx/files/sphinxbase/5prealpha/sphinxbase-5prealpha.tar.gz/download -O sphinxbase.tar.gz \
 	&& tar -xzvf sphinxbase.tar.gz \
         && cd /build/sphinxbase-5prealpha \
@@ -30,23 +37,23 @@ RUN wget https://sourceforge.net/projects/cmusphinx/files/sphinxbase/5prealpha/s
 	&& make \
 	&& make install
 
-#RUN wget https://sourceforge.net/projects/cmusphinx/files/pocketsphinx/5prealpha/pocketsphinx-5prealpha.tar.gz/download -O pocketsphinx.tar.gz \
-#	&& tar -xzvf pocketsphinx.tar.gz \
-#       && cd /build/pocketsphinx-5prealpha \
-#	&& ./configure \
-#	&& make \
-#	&& make install
+RUN wget https://sourceforge.net/projects/cmusphinx/files/pocketsphinx/5prealpha/pocketsphinx-5prealpha.tar.gz/download -O pocketsphinx.tar.gz \
+	&& tar -xzvf pocketsphinx.tar.gz \
+        && cd /build/pocketsphinx-5prealpha \
+	&& ./configure \
+	&& make \
+	&& make install
 
-#ENV FFMPEGVER https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
+ENV FFMPEGVER https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
 
-#RUN mkdir /build/ffmpeg
-#RUN cd /build \
-#	&& wget "$FFMPEGVER" \
-#	&& tar xf ffmpeg-release-amd64-static.tar.xz --directory ffmpeg/
+RUN mkdir /build/ffmpeg
+RUN cd /build \
+	&& wget "$FFMPEGVER" \
+	&& tar xf ffmpeg-release-amd64-static.tar.xz --directory ffmpeg/
 
-#ENV FFMPEG_DIR /build/ffmpeg
+ENV FFMPEG_DIR /build/ffmpeg
 ENV SPHINXBASE_DIR /build/sphinxbase-5prealpha
-#ENV POCKETSPHINX_DIR /build/pocketsphinx-5prealpha
+ENV POCKETSPHINX_DIR /build/pocketsphinx-5prealpha
 ENV USE_PKG_CONFIG no
 
 RUN apk add --no-cache \
@@ -57,14 +64,12 @@ RUN apk add --no-cache \
 	ffmpeg-dev \
 	py3-pybind11
 	
-RUN git clone -b '0.14' https://github.com/sc0ty/subsync.git /app/subsync
+RUN git clone -b '0.15' https://github.com/sc0ty/subsync.git /app/subsync
 RUN cp /app/subsync/subsync/config.py.template /app/subsync/subsync/config.py
 RUN pip3 install -r /app/subsync/requirements.txt
 
 WORKDIR /app/subsync
 RUN pip3 install pybind11 && \
-    pip3 install pocketsphinx && \
-    pip3 install ffmpeg
 RUN pip3 install .
 
 WORKDIR /
