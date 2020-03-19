@@ -65,7 +65,9 @@ RUN pip3 install -r /app/subsync/requirements.txt \
 
 WORKDIR /
 
-COPY config.py /app/subsync/subsync/config.py
+COPY config.py /app/subsync/config.py
+RUN rm /app/subsync/subsync/config.py \
+	&& mv /app/subsync/config.py /app/subsync/subsync/config.py
 
 #COPY --from=builder /app .
 
