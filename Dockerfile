@@ -61,8 +61,11 @@ RUN cp /app/subsync/subsync/config.py.template /app/subsync/subsync/config.py
 RUN pip3 install -r /app/subsync/requirements.txt
 
 WORKDIR /app/subsync
-RUN pip3 install pybind11 && \
-    pip3 install .
+RUN pip3 install pybind11 \
+	&& pip3 install venv \
+	&& python3 - venv .env \
+	&& source .env/bin/activate \
+	&& pip3 install .
 
 WORKDIR /
 
