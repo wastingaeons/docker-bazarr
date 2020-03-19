@@ -16,7 +16,7 @@ if sys.platform == 'win32':
     assetupd  = 'subsync/win-x86_64'
 
 elif sys.platform == 'linux':
-    configdir = '/config/subsync/config'
+    configdir = 'config/subsync/'
     shareddir = configdir
     assetupd =  None
 
