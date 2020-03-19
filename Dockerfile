@@ -16,6 +16,7 @@ RUN apk add --no-cache alsa-lib-dev \
     tar \
     wget \
     cmake \
+    py3-pytest \
     xz && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
