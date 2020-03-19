@@ -15,6 +15,7 @@ RUN apk add --no-cache alsa-lib-dev \
     swig \
     tar \
     wget \
+    cmake \
     xz && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
