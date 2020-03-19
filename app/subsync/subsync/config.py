@@ -16,7 +16,7 @@ if sys.platform == 'win32':
     assetupd  = 'subsync/win-x86_64'
 
 elif sys.platform == 'linux':
-    configdir = os.path.join(os.path.expanduser('~'), '.config', appname)
+    configdir = os.path.join('config', '.config', appname)
     shareddir = configdir
     assetupd =  None
 
