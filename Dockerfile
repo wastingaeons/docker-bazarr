@@ -15,8 +15,6 @@ RUN apk add --no-cache alsa-lib-dev \
     swig \
     tar \
     wget \
-    cmake \
-    py3-pytest \
     xz && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
@@ -24,14 +22,6 @@ RUN apk add --no-cache alsa-lib-dev \
     rm -r /root/.cache
 
 WORKDIR /build
-
-RUN git clone -b 'v2.4.3' https://github.com/pybind/pybind11 pybind11 \
-	&& ls \
-	&& cd pybind11 \
-	&& mkdir build \
-	&& cd build \
-	&& cmake .. \
-	&& make install
 
 RUN wget https://sourceforge.net/projects/cmusphinx/files/sphinxbase/5prealpha/sphinxbase-5prealpha.tar.gz/download -O sphinxbase.tar.gz \
 	&& tar -xzvf sphinxbase.tar.gz \
@@ -60,7 +50,6 @@ ENV POCKETSPHINX_DIR /build/pocketsphinx-5prealpha
 ENV USE_PKG_CONFIG no
 
 RUN apk add --no-cache \
-	py3-setuptools \
 	libffi-dev \
 	openssl-dev \
 	libgcc \
@@ -73,7 +62,7 @@ RUN pip3 install -r /app/subsync/requirements.txt
 
 WORKDIR /app/subsync
 RUN pip3 install pybind11 && \
-RUN pip3 install .
+    pip3 install .
 
 WORKDIR /
 
