@@ -66,7 +66,7 @@ RUN pip3 install -r /app/subsync/requirements.txt \
 WORKDIR /
 
 COPY config.py /app/subsync/subsync/config.py
-RUN -e 's#configdir = os.path.join(os.path.expanduser('~'), '.config', appname)#configdir = '/config/subsync/config'#g' /app/subsync/subsync/config.py
+RUN sed -i -e 's#configdir = os.path.join(os.path.expanduser('~'), '.config', appname)#configdir = '/config/subsync/config'#g' /app/subsync/subsync/config.py
 
 #COPY --from=builder /app .
 
