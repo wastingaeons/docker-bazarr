@@ -63,7 +63,7 @@ WORKDIR /app/subsync
 RUN pip3 install -r /app/subsync/requirements.txt \
 	&& pip3 install .
 
-#COPY --from=builder /app .
+##COPY --from=builder /app .
 
 # ports and volumes
 EXPOSE 6767
