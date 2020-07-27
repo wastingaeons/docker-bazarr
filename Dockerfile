@@ -1,4 +1,4 @@
-FROM linuxserver/bazarr
+FROM linuxserver/bazarr:development
 
 # add local files
 COPY root/ /
