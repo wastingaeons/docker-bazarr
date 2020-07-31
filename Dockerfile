@@ -1,6 +1,7 @@
 FROM linuxserver/bazarr:development
 
 # add local files
+#
 COPY root/ /
 
 RUN apk add --no-cache alsa-lib-dev \
