@@ -1,7 +1,7 @@
-FROM linuxserver/bazarr:development
+FROM hotio/bazarr:unstable
 
 # add local files
-#
+
 COPY root/ /
 
 RUN apk add --no-cache alsa-lib-dev \
