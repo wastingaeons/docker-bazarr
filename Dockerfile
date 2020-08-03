@@ -56,7 +56,7 @@ RUN apk add --no-cache \
 	ffmpeg-dev \
 	py3-pybind11-dev
 	
-RUN git clone -b '0.15' https://github.com/sc0ty/subsync.git /app/subsync
+RUN git clone -b '0.16' https://github.com/sc0ty/subsync.git /app/subsync
 WORKDIR /
 COPY app/ /app/
 WORKDIR /app/subsync
