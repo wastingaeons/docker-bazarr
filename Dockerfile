@@ -7,7 +7,9 @@ COPY root/ /
 
 WORKDIR /build
 
-RUN apk add git
+RUN apk add --no-cache git\
+    python3-dev\
+    pip3
 	
 RUN git clone -b '0.16' https://github.com/sc0ty/subsync.git /app/subsync
 WORKDIR /
