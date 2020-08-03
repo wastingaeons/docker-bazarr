@@ -1,7 +1,6 @@
-FROM hotio/bazarr:unstable
+FROM linuxserver/bazarr:development
 
 # add local files
-
 COPY root/ /
 
 RUN apk add --no-cache alsa-lib-dev \
@@ -13,14 +12,14 @@ RUN apk add --no-cache alsa-lib-dev \
     git \
     libtool \
     python3-dev \
-    py3-pip \
     swig \
     tar \
     wget \
     xz && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
-    pip3 install --upgrade pip setuptools
+    pip3 install --upgrade pip setuptools && \
+    rm -r /root/.cache
 
 WORKDIR /build
 
@@ -57,14 +56,14 @@ RUN apk add --no-cache \
 	ffmpeg-dev \
 	py3-pybind11-dev
 	
-RUN git clone -b '0.16' https://github.com/sc0ty/subsync.git /app/subsync
+RUN git clone -b '0.15' https://github.com/sc0ty/subsync.git /app/subsync
 WORKDIR /
 COPY app/ /app/
 WORKDIR /app/subsync
 RUN pip3 install -r /app/subsync/requirements.txt \
 	&& pip3 install .
 
-##COPY --from=builder /app .
+#COPY --from=builder /app .
 
 # ports and volumes
 EXPOSE 6767
