@@ -6,8 +6,10 @@ COPY root/ /
 
 
 WORKDIR /build
+
+RUN apk add git
 	
-RUN git clone -b '0.15' https://github.com/sc0ty/subsync.git /app/subsync
+RUN git clone -b '0.16' https://github.com/sc0ty/subsync.git /app/subsync
 WORKDIR /
 COPY app/ /app/
 WORKDIR /app/subsync
