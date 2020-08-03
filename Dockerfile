@@ -7,7 +7,7 @@ COPY root/ /
 
 WORKDIR /build
 
-RUN apk add --no-cache git\
+RUN apk update && apk add --no-cache git\
     python3-dev\
     pip3
 	
