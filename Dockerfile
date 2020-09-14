@@ -11,7 +11,6 @@ RUN apk add --no-cache alsa-lib-dev \
     curl \
     git \
     libtool \
-    ffmpeg \
     python3-dev \
     swig \
     tar \
