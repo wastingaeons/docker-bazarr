@@ -1,4 +1,4 @@
-FROM linuxserver/bazarr:development
+FROM hotio/bazarr:unstable
 
 # add local files
 COPY root/ /
