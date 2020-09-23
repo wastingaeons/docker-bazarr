@@ -37,6 +37,7 @@ RUN apk add --no-cache alsa-lib-dev \
 		cd /build \
 			&& wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz \
 			&& tar xf ffmpeg-release-amd64-static.tar.xz --directory ffmpeg/ && \
+		&& export FFMPEG_DIR=/build/ffmpeg && export SPHINXBASE_DIR=/build/sphinxbase-5prealpha && export POCKETSPHINX_DIR=/build/pocketsphinx-5prealpha && export USE_PKG_CONFIG=no && \
 
 	apk add --no-cache \
 	libffi-dev \
@@ -52,14 +53,6 @@ RUN apk add --no-cache alsa-lib-dev \
 	#rm -rf /build && \
 	#apk del build-base
 
-
-ENV FFMPEG_DIR /build/ffmpeg
-ENV SPHINXBASE_DIR /build/sphinxbase-5prealpha
-ENV POCKETSPHINX_DIR /build/pocketsphinx-5prealpha
-ENV USE_PKG_CONFIG no
-
-
-#COPY --from=builder /app .
 
 # ports and volumes
 EXPOSE 6767
