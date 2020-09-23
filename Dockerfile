@@ -46,19 +46,17 @@ RUN apk add --no-cache alsa-lib-dev \
 	py3-pybind11-dev && \
 	
 	git clone -b '0.16' https://github.com/sc0ty/subsync.git /app/subsync && \
-	cd /app/subsync && \
+	cd / && cp app/ /app/ && cd /app/subsync && \
 	pip3 install -r /app/subsync/requirements.txt \
 	&& pip3 install . && \
 	rm -rf /build && \
 	apk del build-base
 
 
-ENV FFMPEG_DIR /build/ffmpeg
-ENV SPHINXBASE_DIR /build/sphinxbase-5prealpha
-ENV POCKETSPHINX_DIR /build/pocketsphinx-5prealpha
+#ENV FFMPEG_DIR /build/ffmpeg
+#ENV SPHINXBASE_DIR /build/sphinxbase-5prealpha
+#ENV POCKETSPHINX_DIR /build/pocketsphinx-5prealpha
 ENV USE_PKG_CONFIG no
-
-COPY /app/ /app/
 
 
 #COPY --from=builder /app .
