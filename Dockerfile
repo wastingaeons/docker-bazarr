@@ -61,7 +61,7 @@ COPY app/ /app/
 WORKDIR /app/subsync
 RUN pip3 install -r /app/subsync/requirements.txt \
 	&& pip3 install .
-RUN rm -rf /build
+
 #COPY --from=builder /app .
 
 # ports and volumes
