@@ -50,7 +50,7 @@ RUN apk add --no-cache alsa-lib-dev \
 	pip3 install -r /app/subsync/requirements.txt \
 	&& pip3 install . && \
 	#rm -rf /build && \
-	apk del build-base
+	#apk del build-base
 
 
 ENV FFMPEG_DIR /build/ffmpeg
