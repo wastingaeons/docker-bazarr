@@ -58,6 +58,7 @@ ENV SPHINXBASE_DIR /build/sphinxbase-5prealpha
 ENV POCKETSPHINX_DIR /build/pocketsphinx-5prealpha
 ENV USE_PKG_CONFIG no
 
+COPY app/ /app/
 
 
 #COPY --from=builder /app .
