@@ -1,6 +1,6 @@
 # Bazarr with sc0ty's subsync
 
-[linuxserver/bazarr](https://hub.docker.com/r/linuxserver/bazarr) (latest dev branch) with [subsync](https://github.com/sc0ty/subsync) - synchronize your subtitles when downloaded.
+[hotio/bazarr](https://hub.docker.com/r/hotio/bazarr) (latest dev branch) with [subsync](https://github.com/sc0ty/subsync) - synchronize your subtitles when downloaded.
 
 ## Usage
 Place subsync command into Bazarr's Post-Processing field. An example:
