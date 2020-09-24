@@ -1,4 +1,4 @@
-FROM linuxserver/bazarr:development
+FROM hotio/bazarr:unstable
 
 # add local files
 COPY root/ /
@@ -18,8 +18,7 @@ RUN apk add --no-cache alsa-lib-dev \
     xz && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
-    pip3 install --upgrade pip setuptools && \
-    rm -r /root/.cache
+    pip3 install --upgrade pip setuptools
 
 WORKDIR /build
 
