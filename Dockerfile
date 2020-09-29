@@ -1,4 +1,4 @@
-FROM hotio/bazarr:unstable AS base
+FROM hotio/bazarr:nightly AS base
 
 ENV PATH="/venv/bin:$PATH"
 
