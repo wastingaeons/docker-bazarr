@@ -67,7 +67,7 @@ RUN pip3 install -r /venv/subsync/requirements.txt \
 	&& pip3 install .
 	
 
-FROM hotio/bazarr:unstable AS img
+FROM hotio/bazarr:nightly AS img
 
 ENV PATH="/venv/bin:$PATH"
 ENV PATH="/venv/subsync/bin:$PATH"
