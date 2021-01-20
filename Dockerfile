@@ -78,6 +78,6 @@ COPY --from=base /usr/local/lib /usr/local/lib
 RUN chmod -R 777 /root
 
 
-# ports and volumes
+## ports and volumes
 EXPOSE 6767
 VOLUME /config /data
